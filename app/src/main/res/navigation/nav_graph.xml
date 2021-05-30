@@ -9,7 +9,7 @@
         android:id="@+id/FirstFragment"
         android:name="com.example.app_pokemon.affichage.liste.app_fragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_liste">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
