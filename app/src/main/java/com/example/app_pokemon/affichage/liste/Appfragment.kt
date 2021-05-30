@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
 import com.example.app_pokemon.affichage.api.PokeApi
-import com.example.app_pokemon.affichage.api.PokemonResponse
+import com.example.app_pokemon.affichage.api.PokemonListe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -57,15 +57,15 @@ class Appfragment : Fragment() {
 
         val pokeApi: PokeApi = retrofit.create(PokeApi::class.java)
 
-        pokeApi.getPokemonList().enqueue(object : Callback<PokemonResponse> {
+        pokeApi.getPokemonList().enqueue(object : Callback<PokemonListe> {
 
-            override fun onFailure(call: Call<PokemonResponse>, t: Throwable) {
+            override fun onFailure(call: Call<PokemonListe>, t: Throwable) {
                 TODO("Not yet implemented")
             }
 
             override fun onResponse(
-                call: Call<PokemonResponse>,
-                response: Response<PokemonResponse>
+                call: Call<PokemonListe>,
+                response: Response<PokemonListe>
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val pokemonResponse = response.body()!!
