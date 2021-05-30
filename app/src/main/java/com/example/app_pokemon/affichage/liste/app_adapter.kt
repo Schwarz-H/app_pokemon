@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
 
-class app_adapter(private val dataSet: Array<String>) :
+class app_adapter(private val dataSet: List<String>) :
         RecyclerView.Adapter<app_adapter.ViewHolder>() {
 
         /**
