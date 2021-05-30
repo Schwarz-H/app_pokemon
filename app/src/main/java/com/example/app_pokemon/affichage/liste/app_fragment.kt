@@ -36,8 +36,8 @@ class app_fragment : Fragment() {
 
 
         recyclerView.apply {
-            layoutManager = layoutManager
-            adapter = adapter
+            layoutManager = this@app_fragment.layoutManager
+            adapter = this@app_fragment.adapter
         }
         val liste_pokemon = arrayListOf<String>().apply {
 
