@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
 
-class app_adapter(private val dataSet: List<String>) :
+class app_adapter(private var dataSet: List<String>) :
         RecyclerView.Adapter<app_adapter.ViewHolder>() {
 
         /**
@@ -21,6 +21,12 @@ class app_adapter(private val dataSet: List<String>) :
                 // Define click listener for the ViewHolder's View.
                 textView = view.findViewById(R.id.nom_pokemon)
             }
+        }
+
+        fun updateList(list: List<String>){
+            dataSet = list
+            notifyDataSetChanged()
+
         }
 
         // Create new views (invoked by the layout manager)
