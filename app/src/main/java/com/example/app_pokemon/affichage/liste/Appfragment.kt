@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
+import com.example.app_pokemon.affichage.Singleton
 import com.example.app_pokemon.affichage.api.PokeApi
 import com.example.app_pokemon.affichage.api.PokemonListe
 import retrofit2.Call
@@ -50,14 +51,8 @@ class Appfragment : Fragment() {
             adapter = this@Appfragment.adapter
         }
 
-        val retrofit = Retrofit.Builder()
-            .baseUrl("https://pokeapi.co/api/v2/")
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
 
-        val pokeApi: PokeApi = retrofit.create(PokeApi::class.java)
-
-        pokeApi.getPokemonList().enqueue(object : Callback<PokemonListe> {
+        Singleton.pokeApi.getPokemonList().enqueue(object : Callback<PokemonListe> {
 
             override fun onFailure(call: Call<PokemonListe>, t: Throwable) {
                 TODO("Not yet implemented")

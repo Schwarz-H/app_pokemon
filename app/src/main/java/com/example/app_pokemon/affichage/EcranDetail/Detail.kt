@@ -7,7 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.app_pokemon.R
+import com.example.app_pokemon.affichage.Singleton
+import com.example.app_pokemon.affichage.api.PokemonDetailsResponse
 import com.example.app_pokemon.databinding.FragmentDetailBinding
+import javax.security.auth.callback.Callback
 
 
 /**
@@ -34,10 +37,13 @@ class Detail : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.NavigationVersLaListe)
-        }
+        callApi()
     }
+
+    private fun callApi() {
+        Singleton.pokeApi.getdetail("1").enqueue(object: Callback<PokemonDetailsResponse>)
+    }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
