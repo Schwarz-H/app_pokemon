@@ -39,12 +39,12 @@ class app_fragment : Fragment() {
             layoutManager = this@app_fragment.layoutManager
             adapter = this@app_fragment.adapter
         }
-        val liste_pokemon = arrayListOf<String>().apply {
+        val liste_pokemon = arrayListOf<Pokemon>().apply {
 
-            add("Pikachu")
-            add("Herbizarre")
-            add("Salamèche")
-            add("Carapuce")
+            add(Pokemon("Pikachu"))
+            add(Pokemon("Herbizarre"))
+            add(Pokemon("Salamèche"))
+            add(Pokemon("Carapuce"))
 
         }
         adapter.updateList(liste_pokemon)
