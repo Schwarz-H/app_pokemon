@@ -1,6 +1,7 @@
 package com.example.app_pokemon.affichage.api
 
 data class PokemonDetailsResponse(
+    val name: String,
     val types: List<PokemonSlot>
 )
 

@@ -13,4 +13,3 @@ class Singleton {
                 .create(PokeApi::class.java)
         }
     }
-}

@@ -7,6 +7,6 @@ import retrofit2.http.Path
 interface PokeApi {
     @GET("pokemon")
     fun getPokemonList(): Call<PokemonListe>
-    @GET("pokemon/{{id}}")
+    @GET("pokemon/{id}")
     fun getdetail(@Path(value = "id") id: String): Call<PokemonListe>
 }
