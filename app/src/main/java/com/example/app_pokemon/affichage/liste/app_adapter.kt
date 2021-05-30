@@ -19,7 +19,7 @@ class app_adapter(private val dataSet: Array<String>) :
 
             init {
                 // Define click listener for the ViewHolder's View.
-                textView = view.findViewById(R.id.nom_pokemeon)
+                textView = view.findViewById(R.id.nom_pokemon)
             }
         }
 
