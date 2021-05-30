@@ -4,19 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
 import com.example.app_pokemon.affichage.Singleton
-import com.example.app_pokemon.affichage.api.PokeApi
 import com.example.app_pokemon.affichage.api.PokemonListe
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 
 /**
@@ -73,8 +71,10 @@ class Appfragment : Fragment() {
 
         })
     }
-        private fun onClickedPokemon(pokemon: Pokemon) {
-            findNavController().navigate(R.id.NavigationVersLeDetail)
+        private fun onClickedPokemon(id: Int) {
+            findNavController().navigate(R.id.NavigationVersLeDetail, bundleOf(
+                "pokemonid" to (id +1)
+            ))
 
 
     }

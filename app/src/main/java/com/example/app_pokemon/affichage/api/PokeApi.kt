@@ -8,5 +8,5 @@ interface PokeApi {
     @GET("pokemon")
     fun getPokemonList(): Call<PokemonListe>
     @GET("pokemon/{id}")
-    fun getdetail(@Path(value = "id") id: String): Call<PokemonListe>
+    fun getdetail(@Path(value = "id") id: Int): Call<PokemonListe>
 }

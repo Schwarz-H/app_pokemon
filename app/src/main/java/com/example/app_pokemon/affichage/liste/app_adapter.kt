@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_pokemon.R
+import kotlin.reflect.KFunction1
 
-class app_adapter(private var dataSet: List<Pokemon>, var listener: ((Pokemon) -> Unit)? = null) :
+class app_adapter(private var dataSet: List<Pokemon>, var listener: KFunction1<Int, Unit> = null) :
         RecyclerView.Adapter<app_adapter.ViewHolder>() {
 
         /**

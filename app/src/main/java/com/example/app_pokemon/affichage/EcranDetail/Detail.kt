@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.app_pokemon.R
 import com.example.app_pokemon.affichage.Singleton
 import com.example.app_pokemon.affichage.api.PokemonDetailsResponse
@@ -23,6 +24,9 @@ import javax.security.auth.callback.Callback
 class Detail : Fragment() {
 private lateinit var textViewName: TextView
     private var _binding: FragmentDetailBinding? = null
+    val args: ConfirmationFragmentArgs by navArgs()
+    val args: PokemonDetailFragmentArgs by navArgs()
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -45,7 +49,8 @@ private lateinit var textViewName: TextView
     }
 
     private fun callApi() {
-        Singleton.pokeApi.getdetail("1").enqueue(object : Callback<PokemonDetailsResponse>{
+        val id = arguments?.getInt(""pokemonId) ?:-1
+        Singleton.pokeApi.getdetail(id).enqueue(object : Callback<PokemonDetailsResponse>{
 
          fun onFailure(call: Call<PokemonListe>, t: Throwable) {
 
