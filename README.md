@@ -9,4 +9,5 @@ Utilisation d'un Singleton
 
 SCREENS :
 
-https://github.com/Schwarz-H/app_pokemon/blob/recyclerview.PNG?raw=true
+![recyclerview](https://user-images.githubusercontent.com/84347615/120234921-3c088000-c259-11eb-92a8-eabb93955cd1.PNG)
+
