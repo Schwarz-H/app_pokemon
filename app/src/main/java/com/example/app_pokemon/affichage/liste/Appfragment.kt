@@ -49,12 +49,34 @@ class Appfragment : Fragment() {
             adapter = this@Appfragment.adapter
         }
 
+            val list = getListFromCache()
+        if(list.isEmpty()){
+            callApi()
+        }else {
+        showList(list)
 
+        }
+        
+    }
+
+    private fun getListFromCache(): List<Pokemon> {
+        //TODO
+
+    }
+
+
+    private fun saveListIntoCache() {
+        TODO("Not yet implemented")
+    }
+
+    private fun callApi() {
         Singleton.pokeApi.getPokemonList().enqueue(object : Callback<PokemonListe> {
 
             override fun onFailure(call: Call<PokemonListe>, t: Throwable) {
                 TODO("Not yet implemented")
             }
+
+
 
             override fun onResponse(
                 call: Call<PokemonListe>,
@@ -62,7 +84,8 @@ class Appfragment : Fragment() {
             ) {
                 if (response.isSuccessful && response.body() != null) {
                     val pokemonResponse = response.body()!!
-                    adapter.updateList(pokemonResponse.results)
+                    saveListIntoCache()
+                    showList(pokemonResponse.results)
                 }
 
 
@@ -71,9 +94,18 @@ class Appfragment : Fragment() {
 
         })
     }
-        private fun onClickedPokemon(id: Int) {
+
+
+
+    private fun showList(PokemonList: List <Pokemon>) {
+        adapter.updateList(PokemonList)
+
+    }
+
+    private fun onClickedPokemon(id: Int) {
+
             findNavController().navigate(R.id.NavigationVersLeDetail, bundleOf(
-                "pokemonid" to (id +1)
+                "pokemonId" to (id +1)
             ))
 
 

@@ -24,8 +24,7 @@ import javax.security.auth.callback.Callback
 class Detail : Fragment() {
 private lateinit var textViewName: TextView
     private var _binding: FragmentDetailBinding? = null
-    val args: ConfirmationFragmentArgs by navArgs()
-    val args: PokemonDetailFragmentArgs by navArgs()
+
 
 
     // This property is only valid between onCreateView and
@@ -49,7 +48,8 @@ private lateinit var textViewName: TextView
     }
 
     private fun callApi() {
-        val id = arguments?.getInt(""pokemonId) ?:-1
+        val id = arguments?.getInt("pokemonId") ?:-1
+
         Singleton.pokeApi.getdetail(id).enqueue(object : Callback<PokemonDetailsResponse>{
 
          fun onFailure(call: Call<PokemonListe>, t: Throwable) {
